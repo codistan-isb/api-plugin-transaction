@@ -83,4 +83,5 @@ input PricingInput {
 }
 type Mutation {
   createTransaction(input: TransactionsInput): Transactions
+  updatedTransaction(input: TransactionsInput): Transactions
 }

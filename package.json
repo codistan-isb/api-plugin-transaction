@@ -2,7 +2,7 @@
     "name": "@codistan-isb/api-plugin-transaction",
     "description": "Boilerplate Example plugin for the Reaction API",
     "label": "Api Plugin Transaction",
-    "version": "1.0.1-development",
+    "version": "1.0.2-development",
     "main": "index.js",
     "type": "module",
     "engines": {
