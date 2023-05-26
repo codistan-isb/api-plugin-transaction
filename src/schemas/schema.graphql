@@ -1,0 +1,86 @@
+type Transactions {
+  _id: ID
+  transactionId: ID
+  pricing: PricingPayload
+  date: DateTime
+  approvalStatus: ApprovalStatusValue
+  transactionStatus: TransactionStatusValue
+  orderId: ID
+  paymentMethod: String
+  transactionType: String
+  transactionByInfo: TransactionByInfoPayload
+}
+
+input TransactionsInput {
+  transactionId: ID
+  pricing: PricingInput
+  date: DateTime
+  approvalStatus: ApprovalStatusValue
+  transactionStatus: TransactionStatusValue
+  orderId: ID
+  paymentMethod: String
+  transactionType: String
+  transactionByInfo: TransactionByInfoInput
+}
+enum ApprovalStatusValue {
+  pending
+  completed
+  failed
+  canceled
+  processing
+  approved
+  rejected
+  expired
+  refunded
+}
+
+enum TransactionStatusValue {
+  successful
+  failed
+  pending
+  processing
+  canceled
+  expired
+  reversed
+  refunded
+  settled
+}
+type TransactionByInfoPayload {
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  address: String
+  city: String
+  postalCode: String
+  country: String
+}
+input TransactionByInfoInput {
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  address: String
+  city: String
+  postalCode: String
+  country: String
+}
+type PricingPayload {
+  amount: Float
+  currency: String
+  taxAmount: Float
+  discountAmount: Float
+  subtotal: Float
+  totalPrice: Float
+}
+input PricingInput {
+  amount: Float
+  currency: String
+  taxAmount: Float
+  discountAmount: Float
+  subtotal: Float
+  totalPrice: Float
+}
+type Mutation {
+  createTransaction(input: TransactionsInput): Transactions
+}
